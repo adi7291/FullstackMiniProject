@@ -29,6 +29,9 @@ const productsRoute = require("./routers/productRouter");
 //now we are implementing router in our application which will lead us to remove all routing code to different folder router
 //and we need to export that file and just have to use in the main server file.
 
+// app.use(bodyParser.json());
+app.use(express.json());
+
 app.use(mainRouter);
 //the about page is not working now because we have not created any routing for the about page in the index.js for the router.
 // we can use prefix for the main router ar any router
@@ -61,7 +64,6 @@ app.use('/public',express.static('public'));
 
 //=====================================================
 //we send JSON data from our client but express by default do not accept JSON data so we need to apply middleware so express can understand the JSON data.
-app.use(bodyParser.json());
 // app.use(cors()); 
 // app.use(express.json());
 

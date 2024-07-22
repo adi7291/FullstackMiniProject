@@ -19,7 +19,7 @@ productRouter.get('/api/products',(req,res)=>{
 
 productRouter.post('/api/products',(req,res)=>{
     console.log('product request')
-    console.log(req);
+    console.log(req.body);
    return res.json({})
 })
 

@@ -28,8 +28,9 @@ const App =()=>{
 // implementing with form  logics
 
 const handleSubmit=(event)=>{
+    console.log("in handle submit")
     event.preventDefault();  
-    console.log(form)
+    console.log("test", form)
    //if we don't have any of the field we will not submit the form  
    if( !form.name || !form.price){
       return;
@@ -38,7 +39,7 @@ const handleSubmit=(event)=>{
 
    fetch('/api/products',{
     method:'POST',
-    header:{
+    headers:{
         'Content-Type': 'application/json'
     },
     body:JSON.stringify(form),
@@ -50,7 +51,7 @@ const handleSubmit=(event)=>{
     return res.json();
    })
    .then(data=>{
-    console.log("success",data)
+    console.log("success")
    })
 
 }
@@ -58,7 +59,6 @@ const handleSubmit=(event)=>{
 // handling the change in the input field and update the state at the same time. 
 const handleChange=(event,field)=>{
     if(field==='name'){
-        console.log("ram")
         setForm({
             ...form,
             name:event.target.value
